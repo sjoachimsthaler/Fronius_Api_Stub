@@ -15,6 +15,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
+using Serilog.AspNetCore;
+
 using Newtonsoft.Json;
 
 using WebApplication2.Model;
@@ -44,18 +46,19 @@ namespace WebApplication2
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             
             app.UseRouting();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.Use(next => context =>
             {
                 var endpoint = context.GetEndpoint();
+                var routevalues = context.Request.RouteValues;
                 if (endpoint is null)
                 {
-                    if (context.Request.Path.Value.Contains("/solar_api/GetAPIVersion.cgi"))
+                    if (context.Request.Path.Value.ToLower().Contains("/solar_api/getapiversion.cgi"))
                     {
                         var apiVersion = new ApiVersion
                         {
@@ -66,41 +69,60 @@ namespace WebApplication2
                         var myDeserializedClass = JsonConvert.SerializeObject(apiVersion);
                         return context.Response.WriteAsync(myDeserializedClass);
                     }
-                    else if (context.Request.Path.Value.Contains("/solar_api/v1/GetInverterInfo.cgi"))
-                    {
-
-                    }
+                    //else if (context.Request.Path.Value.Contains("/solar_api/v1/GetInverterInfo.cgi"))
+                    //{
+                        
+                    //    var inverterInfo = new InverterInfo()
+                    //    {
+                    //        Id = 1,
+                    //        UniqueId = "INVKOSTAL",
+                    //        CustomName = "CombinedKostalInverters",
+                    //        DeviceType = 192,
+                    //        ErrorCode = 0,
+                    //        StatusCode = 7
+                    //    };
+                    //    return context.Response.WriteAsync(JsonConvert.SerializeObject(inverterInfo));
+                    //}
                     else if (context.Request.Path.Value.Contains("/solar_api/v1/GetInverterRealtimeData.cgi"))
                     {
                         //url.addQueryItem("Scope", "Device");  //device / system
                         //url.addQueryItem("DeviceId", QString::number(deviceId));   // 0..9
                         //url.addQueryItem("DataCollection", "CumulationInverterData");   // ”CommonInverterData”
                     }
-                            return context.Response.WriteAsync(context.Request.Path + " Test");
+                            //return context.Response.WriteAsync(context.Request.Path + " Test");
                     //return Task.FromResult(context.Request.Path +" Test");x
                 }
 
-                Console.WriteLine($"Endpoint: {endpoint.DisplayName}");
+                //Console.WriteLine($"Endpoint: {endpoint.DisplayName}");
 
-                if (endpoint is RouteEndpoint routeEndpoint)
-                {
-                    Console.WriteLine("Endpoint has route pattern: " +
-                        routeEndpoint.RoutePattern.RawText);
-                }
+                //if (endpoint is RouteEndpoint routeEndpoint)
+                //{
+                //    Console.WriteLine("Endpoint has route pattern: " +
+                //        routeEndpoint.RoutePattern.RawText);
+                //}
 
-                foreach (var metadata in endpoint.Metadata)
-                {
-                    Console.WriteLine($"Endpoint has metadata: {metadata}");
-                }
+                //foreach (var metadata in endpoint.Metadata)
+                //{
+                //    Console.WriteLine($"Endpoint has metadata: {metadata}");
+                //}
 
                 return next(context);
             });
 
             app.UseEndpoints(endpoints =>
             {
+
                 //endpoints.MapDefaultControllerRoute();
                 endpoints.MapControllers();
-                endpoints.MapFallbackToController("Get", "Home");
+                //endpoints.MapControllerRoute(name: "solaraspx",
+                // pattern: "/solar_api/v1/{action}.aspx",
+                // defaults: new { controller = "SolarApi", action = "action" });
+                //endpoints.MapControllerRoute(name: "solar",
+                // pattern: "/solar_api/v1/{action}.cgi",
+                // defaults: new { controller = "SolarApi", action = "action" });
+
+                //endpoints.Map()
+
             });
 
         }
