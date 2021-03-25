@@ -32,6 +32,7 @@ namespace WebApplication2.Controllers
         public InverterInfo GetInverterInfo()
         {
             Logger.LogInformation("GET: GetInverterInfo");
+            
             var inverterInfo = new InverterInfo()
             {
                 Id = 1,
@@ -48,7 +49,8 @@ namespace WebApplication2.Controllers
         [Route("getapiversion.cgi")]
         public ApiVersion GetApiVersion()
         {
-            Logger.LogInformation("GET: GetInverterInfo");
+            Logger.LogInformation("GET: GetApiVersion");
+            Logger.LogInformation(Request.QueryString.ToString());
             var apiVersion = new ApiVersion
             {
                 APIVersion = 1,
@@ -63,7 +65,7 @@ namespace WebApplication2.Controllers
         [Route("GetInverterRealtimeData.cgi")]
         public InverterRealtimeData GetInverterRealtimeData()
         {
-            Logger.LogInformation("GET: GetInverterInfo");
+            Logger.LogInformation("GET: GetInverterRealtimeData");
             InverterRealtimeData data = new InverterRealtimeData();
             return data;
         }

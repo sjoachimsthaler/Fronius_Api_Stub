@@ -5,6 +5,35 @@ using System.Threading.Tasks;
 
 namespace WebApplication2.Model
 {
+    public class InverterInfoResponse
+    {
+        public ResponseBody Body { get; set; }
+        public ResponseHeader Head { get; set; }
+
+
+        public class ResponseBody
+        {
+            public List<InverterInfo> Data { get; set; }
+        }
+
+        public class ResponseHeader
+        {
+            public List<string> RequestArguments { get; set; }
+
+            public DateTime Timestamp { get; set; } = DateTime.Now;
+            //{
+            //        "RequestArguments" : { },
+            //"Status" : {
+            //            "Code" : 0,
+            //"Reason" : "",
+            //"UserMessage" : ""
+            //},
+            //"Timestamp" : "2019-08-28T07:47:43+00:00"
+            //}
+        }
+    }
+
+
     /// <summary>
     /// 
     /// </summary>
@@ -84,3 +113,28 @@ namespace WebApplication2.Model
         //};
     }
 }
+
+
+//{
+//    "Body" : {
+//        "Data" : {
+//            "1" : {
+//                "CustomName" : "tr-3pn -01",
+//"DT" : 1,
+//"PVPower" : 0,
+//"Show" : 1,
+//"StatusCode" : "Running",
+//"UniqueID" : "29301000987160033"
+//            }
+//        }
+//    },
+//"Head" : {
+//        "RequestArguments" : { },
+//"Status" : {
+//            "Code" : 0,
+//"Reason" : "",
+//"UserMessage" : ""
+//},
+//"Timestamp" : "2019-08-28T07:47:43+00:00"
+//}
+//}
