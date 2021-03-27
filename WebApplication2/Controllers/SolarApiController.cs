@@ -29,18 +29,35 @@ namespace WebApplication2.Controllers
         [HttpGet]
         [Route("GetInverterInfo")]
         [Route("GetInverterInfo.cgi")]
-        public InverterInfo GetInverterInfo()
+        public InverterInfoResponse GetInverterInfo()
         {
             Logger.LogInformation("GET: GetInverterInfo");
-            
-            var inverterInfo = new InverterInfo()
+            //Logger.LogInformation($"Form: {string.Join(",", Request.Form.Select(x => $"{x.Key} : {x.Value}"))}");
+            Logger.LogInformation($"Query: {string.Join(",", Request.Query.Select(x => $"{x.Key} : {x.Value}"))}");
+
+            var inverterInfo = new InverterInfoResponse()
             {
-                Id = 1,
-                UniqueId = "INVKOSTAL",
-                CustomName = "CombinedKostalInverters",
-                DeviceType = 192,
-                ErrorCode = 0,
-                StatusCode = 7
+                Body = new InverterInfoResponse.ResponseBody
+                {
+                    Data = new List<InverterInfo>
+                    {
+                        new InverterInfo
+                        {
+                            CustomName = "CombinedKostal",
+
+                        }
+                    }
+                },
+                Head = new InverterInfoResponse.ResponseHeader
+                {
+
+                }
+                //Id = 1,
+                //UniqueId = "INVKOSTAL",
+                //CustomName = "CombinedKostalInverters",
+                //DeviceType = 192,
+                //ErrorCode = 0,
+                //StatusCode = 7
             };
             return inverterInfo;
         }
