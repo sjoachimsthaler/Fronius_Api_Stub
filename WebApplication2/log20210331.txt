@@ -1,0 +1,124 @@
+2021-03-31 20:04:33.537 +02:00 [INF] Starting up
+2021-03-31 20:04:34.432 +02:00 [INF] Now listening on: https://localhost:5001
+2021-03-31 20:04:34.435 +02:00 [INF] Now listening on: http://localhost:5000
+2021-03-31 20:04:34.437 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-31 20:04:34.437 +02:00 [INF] Hosting environment: Development
+2021-03-31 20:04:34.438 +02:00 [INF] Content root path: D:\dev\Fronius_Api_Stub\WebApplication2
+2021-03-31 20:04:35.591 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/weatherforecast - -
+2021-03-31 20:04:35.667 +02:00 [INF] Executing endpoint 'WebApplication2.Controllers.WeatherForecastController.Get (WebApplication2)'
+2021-03-31 20:04:35.722 +02:00 [INF] Route matched with {action = "Get", controller = "WeatherForecast"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[WebApplication2.WeatherForecast] Get() on controller WebApplication2.Controllers.WeatherForecastController (WebApplication2).
+2021-03-31 20:04:35.731 +02:00 [INF] Executing ObjectResult, writing value of type 'WebApplication2.WeatherForecast[]'.
+2021-03-31 20:04:35.770 +02:00 [INF] Executed action WebApplication2.Controllers.WeatherForecastController.Get (WebApplication2) in 42.4436ms
+2021-03-31 20:04:35.774 +02:00 [INF] Executed endpoint 'WebApplication2.Controllers.WeatherForecastController.Get (WebApplication2)'
+2021-03-31 20:04:35.780 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/weatherforecast - - - 200 - application/json;+charset=utf-8 191.2537ms
+2021-03-31 20:04:35.806 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/favicon.ico - -
+2021-03-31 20:04:35.813 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/favicon.ico - - - 404 0 - 6.5967ms
+2021-03-31 20:04:40.534 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/solar_api/v1/GetInverterInfo.cgi - -
+2021-03-31 20:04:40.535 +02:00 [INF] Executing endpoint 'WebApplication2.Controllers.SolarApiController.GetInverterInfo (WebApplication2)'
+2021-03-31 20:04:40.538 +02:00 [INF] Route matched with {action = "GetInverterInfo", controller = "SolarApi"}. Executing controller action with signature WebApplication2.Model.Rootobject GetInverterInfo() on controller WebApplication2.Controllers.SolarApiController (WebApplication2).
+2021-03-31 20:04:40.540 +02:00 [INF] GET: GetInverterInfo
+2021-03-31 20:04:40.543 +02:00 [INF] Executed action WebApplication2.Controllers.SolarApiController.GetInverterInfo (WebApplication2) in 3.7208ms
+2021-03-31 20:04:40.545 +02:00 [INF] Executed endpoint 'WebApplication2.Controllers.SolarApiController.GetInverterInfo (WebApplication2)'
+2021-03-31 20:04:40.547 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at WebApplication2.Controllers.SolarApiController.GetInverterInfo() in D:\dev\Fronius_Api_Stub\WebApplication2\Controllers\SolarApiController.cs:line 35
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-03-31 20:04:40.675 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/solar_api/v1/GetInverterInfo.cgi - - - 500 - text/html;+charset=utf-8 141.0014ms
+2021-03-31 20:05:22.445 +02:00 [INF] Starting up
+2021-03-31 20:05:23.187 +02:00 [INF] Now listening on: https://localhost:5001
+2021-03-31 20:05:23.190 +02:00 [INF] Now listening on: http://localhost:5000
+2021-03-31 20:05:23.191 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-31 20:05:23.192 +02:00 [INF] Hosting environment: Development
+2021-03-31 20:05:23.193 +02:00 [INF] Content root path: D:\dev\Fronius_Api_Stub\WebApplication2
+2021-03-31 20:05:24.122 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/weatherforecast - -
+2021-03-31 20:05:24.162 +02:00 [INF] Executing endpoint 'WebApplication2.Controllers.WeatherForecastController.Get (WebApplication2)'
+2021-03-31 20:05:24.198 +02:00 [INF] Route matched with {action = "Get", controller = "WeatherForecast"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[WebApplication2.WeatherForecast] Get() on controller WebApplication2.Controllers.WeatherForecastController (WebApplication2).
+2021-03-31 20:05:24.210 +02:00 [INF] Executing ObjectResult, writing value of type 'WebApplication2.WeatherForecast[]'.
+2021-03-31 20:05:24.252 +02:00 [INF] Executed action WebApplication2.Controllers.WeatherForecastController.Get (WebApplication2) in 47.155ms
+2021-03-31 20:05:24.257 +02:00 [INF] Executed endpoint 'WebApplication2.Controllers.WeatherForecastController.Get (WebApplication2)'
+2021-03-31 20:05:24.262 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/weatherforecast - - - 200 - application/json;+charset=utf-8 141.4781ms
+2021-03-31 20:05:27.784 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/solar_api/v1/GetInverterInfo.cgi - -
+2021-03-31 20:05:27.787 +02:00 [INF] Executing endpoint 'WebApplication2.Controllers.SolarApiController.GetInverterInfo (WebApplication2)'
+2021-03-31 20:05:27.789 +02:00 [INF] Route matched with {action = "GetInverterInfo", controller = "SolarApi"}. Executing controller action with signature WebApplication2.Model.Rootobject GetInverterInfo() on controller WebApplication2.Controllers.SolarApiController (WebApplication2).
+2021-03-31 20:05:27.791 +02:00 [INF] GET: GetInverterInfo
+2021-03-31 20:05:27.793 +02:00 [INF] Executing ObjectResult, writing value of type 'WebApplication2.Model.Rootobject'.
+2021-03-31 20:05:27.799 +02:00 [INF] Executed action WebApplication2.Controllers.SolarApiController.GetInverterInfo (WebApplication2) in 7.6062ms
+2021-03-31 20:05:27.802 +02:00 [INF] Executed endpoint 'WebApplication2.Controllers.SolarApiController.GetInverterInfo (WebApplication2)'
+2021-03-31 20:05:27.803 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/solar_api/v1/GetInverterInfo.cgi - - - 200 - application/json;+charset=utf-8 18.9778ms
+2021-03-31 20:05:45.620 +02:00 [INF] Application is shutting down...
+2021-03-31 20:16:11.426 +02:00 [INF] Starting up
+2021-03-31 20:16:12.231 +02:00 [INF] Now listening on: https://localhost:5001
+2021-03-31 20:16:12.234 +02:00 [INF] Now listening on: http://localhost:5000
+2021-03-31 20:16:12.235 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-31 20:16:12.236 +02:00 [INF] Hosting environment: Development
+2021-03-31 20:16:12.237 +02:00 [INF] Content root path: D:\dev\Fronius_Api_Stub\WebApplication2
+2021-03-31 20:16:13.369 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/weatherforecast - -
+2021-03-31 20:16:13.441 +02:00 [INF] Executing endpoint 'WebApplication2.Controllers.WeatherForecastController.Get (WebApplication2)'
+2021-03-31 20:16:13.476 +02:00 [INF] Route matched with {action = "Get", controller = "WeatherForecast"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[WebApplication2.WeatherForecast] Get() on controller WebApplication2.Controllers.WeatherForecastController (WebApplication2).
+2021-03-31 20:16:13.489 +02:00 [INF] Executing ObjectResult, writing value of type 'WebApplication2.WeatherForecast[]'.
+2021-03-31 20:16:13.528 +02:00 [INF] Executed action WebApplication2.Controllers.WeatherForecastController.Get (WebApplication2) in 45.3861ms
+2021-03-31 20:16:13.532 +02:00 [INF] Executed endpoint 'WebApplication2.Controllers.WeatherForecastController.Get (WebApplication2)'
+2021-03-31 20:16:13.537 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/weatherforecast - - - 200 - application/json;+charset=utf-8 170.8021ms
+2021-03-31 20:16:18.097 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/solar_api/v1/GetInverterInfo.cgi - -
+2021-03-31 20:16:18.099 +02:00 [INF] Executing endpoint 'WebApplication2.Controllers.SolarApiController.GetInverterInfo (WebApplication2)'
+2021-03-31 20:16:18.101 +02:00 [INF] Route matched with {action = "GetInverterInfo", controller = "SolarApi"}. Executing controller action with signature WebApplication2.Model.Rootobject GetInverterInfo() on controller WebApplication2.Controllers.SolarApiController (WebApplication2).
+2021-03-31 20:16:18.104 +02:00 [INF] GET: GetInverterInfo
+2021-03-31 20:16:18.106 +02:00 [INF] Executing ObjectResult, writing value of type 'WebApplication2.Model.Rootobject'.
+2021-03-31 20:16:18.110 +02:00 [INF] Executed action WebApplication2.Controllers.SolarApiController.GetInverterInfo (WebApplication2) in 7.2694ms
+2021-03-31 20:16:18.112 +02:00 [INF] Executed endpoint 'WebApplication2.Controllers.SolarApiController.GetInverterInfo (WebApplication2)'
+2021-03-31 20:16:18.114 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/solar_api/v1/GetInverterInfo.cgi - - - 200 - application/json;+charset=utf-8 16.8170ms
+2021-03-31 20:30:11.172 +02:00 [INF] Starting up
+2021-03-31 20:30:12.052 +02:00 [INF] Now listening on: https://localhost:5001
+2021-03-31 20:30:12.055 +02:00 [INF] Now listening on: http://localhost:5000
+2021-03-31 20:30:12.056 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-31 20:30:12.057 +02:00 [INF] Hosting environment: Development
+2021-03-31 20:30:12.058 +02:00 [INF] Content root path: D:\dev\Fronius_Api_Stub\WebApplication2
+2021-03-31 20:30:13.074 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/weatherforecast - -
+2021-03-31 20:30:13.149 +02:00 [INF] Executing endpoint 'WebApplication2.Controllers.WeatherForecastController.Get (WebApplication2)'
+2021-03-31 20:30:13.192 +02:00 [INF] Route matched with {action = "Get", controller = "WeatherForecast"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[WebApplication2.WeatherForecast] Get() on controller WebApplication2.Controllers.WeatherForecastController (WebApplication2).
+2021-03-31 20:30:13.206 +02:00 [INF] Executing ObjectResult, writing value of type 'WebApplication2.WeatherForecast[]'.
+2021-03-31 20:30:13.247 +02:00 [INF] Executed action WebApplication2.Controllers.WeatherForecastController.Get (WebApplication2) in 49.1713ms
+2021-03-31 20:30:13.251 +02:00 [INF] Executed endpoint 'WebApplication2.Controllers.WeatherForecastController.Get (WebApplication2)'
+2021-03-31 20:30:13.255 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/weatherforecast - - - 200 - application/json;+charset=utf-8 181.7478ms
+2021-03-31 20:30:16.595 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/solar_api/v1/GetInverterInfo.cgi - -
+2021-03-31 20:30:16.597 +02:00 [INF] Executing endpoint 'WebApplication2.Controllers.SolarApiController.GetInverterInfo (WebApplication2)'
+2021-03-31 20:30:16.599 +02:00 [INF] Route matched with {action = "GetInverterInfo", controller = "SolarApi"}. Executing controller action with signature WebApplication2.Model.Rootobject GetInverterInfo() on controller WebApplication2.Controllers.SolarApiController (WebApplication2).
+2021-03-31 20:30:16.602 +02:00 [INF] GET: GetInverterInfo
+2021-03-31 20:30:16.604 +02:00 [INF] Executing ObjectResult, writing value of type 'WebApplication2.Model.Rootobject'.
+2021-03-31 20:30:16.610 +02:00 [INF] Executed action WebApplication2.Controllers.SolarApiController.GetInverterInfo (WebApplication2) in 8.5818ms
+2021-03-31 20:30:16.611 +02:00 [INF] Executed endpoint 'WebApplication2.Controllers.SolarApiController.GetInverterInfo (WebApplication2)'
+2021-03-31 20:30:16.613 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/solar_api/v1/GetInverterInfo.cgi - - - 200 - application/json;+charset=utf-8 17.4945ms
+2021-03-31 20:30:41.214 +02:00 [INF] Starting up
+2021-03-31 20:30:42.048 +02:00 [INF] Now listening on: https://localhost:5001
+2021-03-31 20:30:42.053 +02:00 [INF] Now listening on: http://localhost:5000
+2021-03-31 20:30:42.054 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-31 20:30:42.055 +02:00 [INF] Hosting environment: Development
+2021-03-31 20:30:42.056 +02:00 [INF] Content root path: D:\dev\Fronius_Api_Stub\WebApplication2
+2021-03-31 20:30:43.400 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/weatherforecast - -
+2021-03-31 20:30:43.443 +02:00 [INF] Executing endpoint 'WebApplication2.Controllers.WeatherForecastController.Get (WebApplication2)'
+2021-03-31 20:30:43.475 +02:00 [INF] Route matched with {action = "Get", controller = "WeatherForecast"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[WebApplication2.WeatherForecast] Get() on controller WebApplication2.Controllers.WeatherForecastController (WebApplication2).
+2021-03-31 20:30:43.484 +02:00 [INF] Executing ObjectResult, writing value of type 'WebApplication2.WeatherForecast[]'.
+2021-03-31 20:30:43.524 +02:00 [INF] Executed action WebApplication2.Controllers.WeatherForecastController.Get (WebApplication2) in 42.5677ms
+2021-03-31 20:30:43.528 +02:00 [INF] Executed endpoint 'WebApplication2.Controllers.WeatherForecastController.Get (WebApplication2)'
+2021-03-31 20:30:43.533 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/weatherforecast - - - 200 - application/json;+charset=utf-8 134.8938ms
+2021-03-31 20:30:48.110 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/solar_api/v1/GetInverterInfo.cgi - -
+2021-03-31 20:30:48.112 +02:00 [INF] Executing endpoint 'WebApplication2.Controllers.SolarApiController.GetInverterInfo (WebApplication2)'
+2021-03-31 20:30:48.114 +02:00 [INF] Route matched with {action = "GetInverterInfo", controller = "SolarApi"}. Executing controller action with signature WebApplication2.Model.Rootobject GetInverterInfo() on controller WebApplication2.Controllers.SolarApiController (WebApplication2).
+2021-03-31 20:30:48.116 +02:00 [INF] GET: GetInverterInfo
+2021-03-31 20:30:48.117 +02:00 [INF] Executing ObjectResult, writing value of type 'WebApplication2.Model.Rootobject'.
+2021-03-31 20:30:48.124 +02:00 [INF] Executed action WebApplication2.Controllers.SolarApiController.GetInverterInfo (WebApplication2) in 8.5034ms
+2021-03-31 20:30:48.125 +02:00 [INF] Executed endpoint 'WebApplication2.Controllers.SolarApiController.GetInverterInfo (WebApplication2)'
+2021-03-31 20:30:48.126 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/solar_api/v1/GetInverterInfo.cgi - - - 200 - application/json;+charset=utf-8 16.8771ms

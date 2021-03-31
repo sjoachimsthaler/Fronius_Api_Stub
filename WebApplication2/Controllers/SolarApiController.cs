@@ -40,7 +40,7 @@ namespace WebApplication2.Controllers
                     {
                         _1 = new _1
                         {
-                            DT = 123,
+                            DT = 0,
                             CustomName = "Test",
                             ErrorCode = 0,
                             Show = 1,
