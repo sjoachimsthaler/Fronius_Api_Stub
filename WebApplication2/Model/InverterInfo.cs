@@ -21,7 +21,7 @@ namespace WebApplication2.Model
         [System.Text.Json.Serialization.JsonPropertyName("Status")]
         public Status Status { get; set; }
         [System.Text.Json.Serialization.JsonPropertyName("Timestamp")]
-        public DateTime Timestamp { get; set; }
+        public DateTime Timestamp { get; set; } = DateTime.Now;
     }
 
     public class Requestarguments
@@ -33,9 +33,9 @@ namespace WebApplication2.Model
         [System.Text.Json.Serialization.JsonPropertyName("Code")]
         public int Code { get; set; }
         [System.Text.Json.Serialization.JsonPropertyName("Reason")]
-        public string Reason { get; set; }
+        public string Reason { get; set; } = "";
         [System.Text.Json.Serialization.JsonPropertyName("UserMessage")]
-        public string UserMessage { get; set; }
+        public string UserMessage { get; set; } = "";
     }
 
     public class Body

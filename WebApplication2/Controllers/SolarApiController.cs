@@ -123,7 +123,31 @@ namespace WebApplication2.Controllers
         {
             // TODO request hier
             Logger.LogInformation("GET: GetInverterRealtimeData");
-            CommonInverterData data = new CommonInverterData();
+            CommonInverterData data = new CommonInverterData()
+            {
+                Body = new CommonInverterDataBody
+                {
+                    Data = new CommonIverterDataData
+                    {
+                        DayEnergy = new ValueWithUnit(),
+                        DeviceStatus = new DeviceStatus(),
+                        FrequencyAC = new ValueWithUnit(),
+                        IAC = new ValueWithUnit(),
+                        IDC = new ValueWithUnit(),
+                        PAC = new ValueWithUnit(),
+                        TOTAL_ENERGY = new ValueWithUnit(),
+                        UAC = new ValueWithUnit(),
+                        UDC = new ValueWithUnit(),
+                        YEAR_ENERGY = new ValueWithUnit()
+                    }
+                },
+                Head = new Head
+                {
+                    RequestArguments = new Requestarguments(),
+                    Status = new Status(),
+                    Timestamp = DateTime.Now
+                }
+            };
             return data;
         }
 
