@@ -28,11 +28,11 @@ namespace WebApplication2.Controllers
         [HttpGet]
         [Route("GetInverterInfo")]
         [Route("GetInverterInfo.cgi")]
-        public Rootobject GetInverterInfo()
+        public InverterInfo GetInverterInfo()
         {
             Logger.LogInformation("GET: GetInverterInfo");
             //Logger.LogInformation($"Form: {string.Join(",", Request.Form.Select(x => $"{x.Key} : {x.Value}"))}");
-            var root = new Rootobject
+            var root = new InverterInfo
             {
                 Body = new Body
                 {
@@ -119,10 +119,11 @@ namespace WebApplication2.Controllers
 
         [HttpGet]
         [Route("GetInverterRealtimeData.cgi")]
-        public InverterRealtimeData GetInverterRealtimeData()
+        public CommonInverterData GetInverterRealtimeData()
         {
+            // TODO request hier
             Logger.LogInformation("GET: GetInverterRealtimeData");
-            InverterRealtimeData data = new InverterRealtimeData();
+            CommonInverterData data = new CommonInverterData();
             return data;
         }
 
