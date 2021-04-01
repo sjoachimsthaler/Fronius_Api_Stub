@@ -12,7 +12,7 @@
     "IIS Express": {
         "commandName": "IISExpress",
         "launchBrowser": true,
-        "launchUrl": "solar_api/v1/GetInverterInfo.cgi",
+        "launchUrl": "solar_api/v1/GetInverterRealtimeData.cgi",
         "environmentVariables": {
             "ASPNETCORE_ENVIRONMENT": "Development"
         }
