@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace WebApplication2.Model
 {
 
-    public class InverterInfo
+    public class InverterInfoResponse
     {
         [System.Text.Json.Serialization.JsonPropertyName("Body")]
         public Body Body { get; set; }
@@ -47,11 +47,13 @@ namespace WebApplication2.Model
     public class Data
     {
         [System.Text.Json.Serialization.JsonPropertyName("1")]
-        public _1 _1 { get; set; }
+        public InverterInfo Inverter1 { get; set; }
+        [System.Text.Json.Serialization.JsonPropertyName("2")]
+        public InverterInfo Inverter2 { get; set; }
     }
 
 
-    public class _1
+    public class InverterInfo
     {
         [System.Text.Json.Serialization.JsonPropertyName("DT")]
         public int DT { get; set; }

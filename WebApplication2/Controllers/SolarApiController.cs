@@ -28,25 +28,37 @@ namespace WebApplication2.Controllers
         [HttpGet]
         [Route("GetInverterInfo")]
         [Route("GetInverterInfo.cgi")]
-        public InverterInfo GetInverterInfo()
+        public InverterInfoResponse GetInverterInfo()
         {
+            
+
             Logger.LogInformation("GET: GetInverterInfo");
             //Logger.LogInformation($"Form: {string.Join(",", Request.Form.Select(x => $"{x.Key} : {x.Value}"))}");
-            var root = new InverterInfo
+            var root = new InverterInfoResponse
             {
                 Body = new Body
                 {
                     Data = new Data
                     {
-                        _1 = new _1
+                        Inverter1 = new InverterInfo
                         {
                             DT = 0,
-                            CustomName = "Test",
+                            CustomName = "Inverter1",
                             ErrorCode = 0,
                             Show = 1,
                             PVPower = 5400,
                             StatusCode = 7,
-                            UniqueID = "476"
+                            UniqueID = "Kostal_PV_1"
+                        },
+                        Inverter2 = new InverterInfo
+                        {
+                            DT = 0,
+                            CustomName = "Inverter2",
+                            ErrorCode = 0,
+                            Show = 1,
+                            PVPower = 5400,
+                            StatusCode = 7,
+                            UniqueID = "Kostal_PV_2"
                         }
                     }
                 },
@@ -119,26 +131,68 @@ namespace WebApplication2.Controllers
 
         [HttpGet]
         [Route("GetInverterRealtimeData.cgi")]
-        public CommonInverterData GetInverterRealtimeData()
+        public CommonInverterData GetInverterRealtimeData(int deviceId)
         {
+            //var deviceId = Request.Query["deviceId"];
             // TODO request hier
             Logger.LogInformation("GET: GetInverterRealtimeData");
+
+            
             CommonInverterData data = new CommonInverterData()
             {
                 Body = new CommonInverterDataBody
                 {
                     Data = new CommonIverterDataData
                     {
-                        DayEnergy = new ValueWithUnit(),
-                        DeviceStatus = new DeviceStatus(),
-                        FrequencyAC = new ValueWithUnit(),
-                        IAC = new ValueWithUnit(),
-                        IDC = new ValueWithUnit(),
-                        PAC = new ValueWithUnit(),
-                        TOTAL_ENERGY = new ValueWithUnit(),
-                        UAC = new ValueWithUnit(),
-                        UDC = new ValueWithUnit(),
+                        DayEnergy = new ValueWithUnit()
+                        {
+                            Unit = "Wh",
+                            Value = 0
+                        },
+                        DeviceStatus = new DeviceStatus()
+                        {
+                            
+                        },
+                        FrequencyAC = new ValueWithUnit()
+                        {
+                            Unit = "Hz",
+                            Value = 50.0
+                        },
+                        IAC = new ValueWithUnit()
+                        {
+                            Unit = "A",
+                            Value = 0
+                        },
+                        IDC = new ValueWithUnit()
+                        {
+                            Unit = "A",
+                            Value = 0
+                        },
+                        PAC = new ValueWithUnit()
+                        {
+                            Unit = "W",
+                            Value = 0
+                        },
+                        TOTAL_ENERGY = new ValueWithUnit()
+                        {
+                            Unit = "Wh",
+                            Value = 0
+                        },
+                        UAC = new ValueWithUnit()
+                        {
+                            Unit = "V",
+                            Value = 230
+                        },
+                        UDC = new ValueWithUnit()
+                        {
+                            Unit = "V",
+                            Value = 0
+                        },
                         YEAR_ENERGY = new ValueWithUnit()
+                        {
+                            Unit = "Wh",
+                            Value = 0
+                        }
                     }
                 },
                 Head = new Head
@@ -148,6 +202,15 @@ namespace WebApplication2.Controllers
                     Timestamp = DateTime.Now
                 }
             };
+
+            if (deviceId == 1)
+            {
+                data.Body.Data.PAC.Value = 0;
+            }
+            else if (deviceId == 2)
+            {
+                data.Body.Data.PAC.Value = 0;
+            }
             return data;
         }
 
