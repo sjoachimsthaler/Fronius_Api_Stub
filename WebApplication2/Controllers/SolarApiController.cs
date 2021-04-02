@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
@@ -142,17 +143,26 @@ namespace WebApplication2.Controllers
             // TODO request hier
             Logger.LogInformation("GET: GetInverterRealtimeData");
             KostalMeasurements inverterData = null;
+            KostalMonthJson monthjson = null;
+            KostalTotalYieldsJson totalYieldsJson = null;
             string stringResponse = "";
             Dictionary<string, rootDeviceMeasurement> measurements = new Dictionary<string, rootDeviceMeasurement>();
-
+            string baseIp = "http://192.168.178.31";
             if (deviceId == 2)
             {
-                stringResponse = await HttpClient.GetStringAsync("http://192.168.178.29/measurements.xml");
+                baseIp = "http://192.168.178.29";
             }
             else if (deviceId == 1)
             {
-                stringResponse = await HttpClient.GetStringAsync("http://192.168.178.31/measurements.xml");
+                baseIp = "http://192.168.178.31";
             }
+
+            stringResponse = await HttpClient.GetStringAsync($"{baseIp}/measurements.xml");
+            //monthjson = await HttpClient.GetFromJsonAsync<KostalMonthJson>($"{baseIp}/yields.json?month=1");
+            totalYieldsJson = await HttpClient.GetFromJsonAsync<KostalTotalYieldsJson>($"{baseIp}/yields.json?total=1");
+
+            
+
             if (!string.IsNullOrEmpty(stringResponse))
             {
                 XmlSerializer xmlResponse = new XmlSerializer(typeof(KostalMeasurements));
@@ -173,7 +183,7 @@ namespace WebApplication2.Controllers
                         DayEnergy = new ValueWithUnit()
                         {
                             Unit = "Wh",
-                            Value = 0
+                            Value = 0 // monthjson.MonthCurves.Datasets[0].Data[0].Data[DateTime.Today.Day - 1]
                         },
                         DeviceStatus = new DeviceStatus()
                         {
@@ -189,11 +199,11 @@ namespace WebApplication2.Controllers
                             Unit = "A",
                             Value = measurements["AC_Current"].ValueSpecified ? (double)measurements["AC_Current"].Value : 0
                         },
-                        IDC = new ValueWithUnit()
-                        {
-                            Unit = "A",
-                            Value = measurements["DC_Current1"].ValueSpecified ? (double)measurements["DC_Current1"].Value : 0
-                        },
+                        //IDC = new ValueWithUnit()
+                        //{
+                        //    Unit = "A",
+                        //    Value = measurements["DC_Current1"].ValueSpecified ? (double)measurements["DC_Current1"].Value : 0
+                        //},
                         PAC = new ValueWithUnit()
                         {
                             Unit = "W",
@@ -202,22 +212,22 @@ namespace WebApplication2.Controllers
                         TOTAL_ENERGY = new ValueWithUnit()
                         {
                             Unit = "Wh",
-                            Value = 0
-                        },
+                            Value = totalYieldsJson.TotalCurves.Datasets[0].Data.Sum(x => x.Data)
+        },
                         UAC = new ValueWithUnit()
                         {
                             Unit = "V",
                             Value = measurements["AC_Voltage"].ValueSpecified ? (double)measurements["AC_Voltage"].Value : 230
                         },
-                        UDC = new ValueWithUnit()
-                        {
-                            Unit = "V",
-                            Value = measurements["DC_Voltage1"].ValueSpecified ? (double)measurements["DC_Voltage1"].Value : 0
-                        },
+                        //UDC = new ValueWithUnit()
+                        //{
+                        //    Unit = "V",
+                        //    Value = measurements["DC_Voltage1"].ValueSpecified ? (double)measurements["DC_Voltage1"].Value : 0
+                        //},
                         YEAR_ENERGY = new ValueWithUnit()
                         {
                             Unit = "Wh",
-                            Value = 0
+                            Value = totalYieldsJson.TotalCurves.Datasets[0].Data.Last().Data
                         }
                     }
                 },
