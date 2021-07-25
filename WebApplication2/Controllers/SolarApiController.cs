@@ -143,7 +143,6 @@ namespace WebApplication2.Controllers
             // TODO request hier
             Logger.LogInformation("GET: GetInverterRealtimeData");
             KostalMeasurements inverterData = null;
-            KostalMonthJson monthjson = null;
             KostalTotalYieldsJson totalYieldsJson = null;
             string stringResponse = "";
             Dictionary<string, rootDeviceMeasurement> measurements = new Dictionary<string, rootDeviceMeasurement>();
@@ -157,11 +156,13 @@ namespace WebApplication2.Controllers
                 baseIp = "http://192.168.178.31";
             }
 
-            stringResponse = await HttpClient.GetStringAsync($"{baseIp}/measurements.xml");
+            var stringResponseTask = HttpClient.GetStringAsync($"{baseIp}/measurements.xml");
             //monthjson = await HttpClient.GetFromJsonAsync<KostalMonthJson>($"{baseIp}/yields.json?month=1");
-            totalYieldsJson = await HttpClient.GetFromJsonAsync<KostalTotalYieldsJson>($"{baseIp}/yields.json?total=1");
-
+            var totalYieldsJsonTask = HttpClient.GetFromJsonAsync<KostalTotalYieldsJson>($"{baseIp}/yields.json?total=1");
             
+            await Task.WhenAll(new Task[] { stringResponseTask, totalYieldsJsonTask });
+            stringResponse = stringResponseTask.Result;
+            totalYieldsJson = totalYieldsJsonTask.Result;
 
             if (!string.IsNullOrEmpty(stringResponse))
             {
