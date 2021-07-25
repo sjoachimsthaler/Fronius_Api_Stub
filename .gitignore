@@ -340,3 +340,4 @@ ASALocalRun/
 healthchecksdb
 /WebApplication2/log20210328.txt
 log*.txt
+/WebApplication2/fronius.tar
